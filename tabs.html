@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SAC GALLERY</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/responsive-tabs@1.6.3/css/responsive-tabs.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   
+   <script src="https://cdn.jsdelivr.net/npm/responsive-tabs@1.6.3/js/jquery.responsiveTabs.min.js"></script>
+    <style>
+
+.folder_row {
+  margin-top: 5rem;
+}
+
+.folder:nth-child(1) .folder-tab_inner {
+  background-color: #A2A5CE;
+}
+.folder:nth-child(1) .folder-tab_inner_back {
+  background-color: #A2A5CE;
+}
+
+.folder {
+  background-color: #EEEEFD;
+  margin: 20px 25px 15px;
+  border: 1px solid #a3daff;
+  position: relative;
+  width: 25%;
+  height: 200px;
+  display: block;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(19, 109, 169, 0.2);
+  padding-top: 80px;
+  padding-left: 100px;
+  margin-left: 5rem;
+}
+.folder .folder-tab {
+  position: absolute;
+  height: 15px;
+  left: -1px;
+  bottom: 100%;
+  display: block;
+  width: 50%;
+  border-top-left-radius: 8px;
+  background-color: #EEEEFD;
+  border-top: 1px solid #a3daff;
+  border-left: 1px solid #a3daff;
+
+}
+.folder .folder-tab:after {
+  content: '';
+  transition: ease all 0.5s;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: calc(100% - 16px);
+  border-right: 1px solid #a3daff;
+  width: 20px;
+  height: 15px;
+  background: #EEEEFD;
+  transform: skewX(30deg);
+}
+.folder .folder-tab_inner {
+  position: absolute;
+  height: 5px;
+  right: 10%;
+  bottom: 100%;
+  display: block;
+  width: 80%;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  z-index: -1;
+  border-top: 1px solid #fff;
+}
+.folder .folder-tab_inner_back {
+  position: absolute;
+  height: 8px;
+  right: 15%;
+  bottom: 100%;
+  display: block;
+  width: 70%;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  z-index: -2;
+}
+.folder:hover {
+  background: #2D0653;
+  color:#EEEEFD;
+}
+.folder:hover .folder-tab {
+  background:  #2D0653;
+  color:#EEEEFD;
+}
+.folder:hover .folder-tab:after {
+  background:  #2D0653;
+  color:#EEEEFD;
+}
+
+.folder:hover .folder-tab_inner {
+  height: 20px;
+}
+.folder:hover .folder-tab_inner_back {
+  height: 23px;
+}
+.folder .inner_content {
+  padding: 10px 20px 20px 20px;
+}
+.folder .inner_content_title {
+  font-size: 13px;
+  font-weight: 600;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+}
+.folder .inner_content_count {
+  font-size: 12px;
+}
+.folder .icon_sync {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+
+
+        body{
+              font-family: 'Roboto Condensed', sans-serif;
+             background: #EEEEFD;
+        }
+ 
+
+ 
+ /* Tabbed Styles */
+#services-tabs {
+  width: 80%;
+  min-width: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+  margin-top: 3rem;
+
+}
+#services-tabs ul {
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  float: right;
+  padding-left: 48px;
+  list-style-type: none;
+}
+#services-tabs ul * {
+  margin: 0px;
+  padding: 0px;
+}
+#services-tabs ul li {
+  display: block;
+  float: left;
+  padding: 10px 24px 8px;
+  background-color: #FFF;
+  margin-right: 46px;
+  z-index: 2;
+  position: relative;
+  cursor: pointer;
+  color: #777;
+
+  text-transform: uppercase;
+  font: 600 13px/20px roboto, "Open Sans", Helvetica, sans-serif;
+
+}
+#services-tabs ul li:before,
+#services-tabs ul li:after {
+  display: block;
+  content: " ";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 44px;  
+  background-color: white;
+
+}
+#services-tabs ul li:before {
+  right: -24px;
+  transform: skew(30deg, 0deg);
+  box-shadow: rgba(0,0,0,.1) 3px 2px 5px, inset rgba(255,255,255,.09) -1px 0;
+}
+#services-tabs ul li:after {
+  left: -24px;
+  transform: skew(-30deg, 0deg);
+  box-shadow: rgba(0,0,0,.1) -3px 2px 5px, inset rgba(255,255,255,.09) 1px 0;
+
+
+}
+
+#services-tabs ul li:hover,
+#services-tabs ul li:hover:before,
+#services-tabs ul li:hover:after {
+  background-color: #2D0653;
+  color: #fff;
+}
+#services-tabs ul li.active {
+  z-index: 3;
+
+}
+#services-tabs ul li.active,
+#services-tabs ul li.active:before,
+#services-tabs ul li.active:after {
+  background-color: #2D0653;
+  color: #fff;
+}
+
+/* Round Tabs */
+#services-tabs ul li {
+  border-radius: 8px 8px 0 0;
+}
+#services-tabs ul li:before {
+  border-radius: 0 8px 0 0;
+}
+#services-tabs ul li:after {
+  border-radius: 8px 0 0 0;
+
+}
+
+#linne
+{
+	border-bottom: 5px solid #A2A5CE;
+	max-width: 800px;
+	margin-left: 60rem;
+	
+}
+.ua
+{
+	text-decoration: none;
+	
+	font-weight: 1500;
+	font-size: 20px;
+}
+.ua:hover
+{
+	text-decoration: none;
+	color: white;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------*/
+@media (min-width: 576px) and (max-width: 867.98px)
+{
+
+.folder {
+  background-color: #EEEEFD;
+  margin: 20px 25px 15px;
+  border: 1px solid #a3daff;
+  position: relative;
+  width: 63%;
+  height: 200px;
+  display: block;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(19, 109, 169, 0.2);
+  padding-top: 80px;
+  padding-left: 100px;
+  margin-left: 5rem;
+}
+
+}
+
+@media (min-width: 376px) and (max-width: 575px)
+{
+
+.folder {
+  background-color: #EEEEFD;
+  margin: 20px 25px 15px;
+  border: 1px solid #a3daff;
+  position: relative;
+  width: 80%;
+  height: 200px;
+  display: block;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(19, 109, 169, 0.2);
+  padding-top: 80px;
+  padding-left: 100px;
+  margin-left: 5rem;
+}
+
+}
+
+@media (min-width: 877px) and (max-width: 1024px)
+{
+
+.folder {
+  background-color: #EEEEFD;
+  margin: 20px 25px 15px;
+  border: 1px solid #a3daff;
+  position: relative;
+  width: 40%;
+  height: 200px;
+  display: block;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(19, 109, 169, 0.2);
+  padding-top: 80px;
+  padding-left: 100px;
+  margin-left: 5rem;
+}
+
+}
+
+
+@media (min-width: 1025px) and (max-width: 1300px)
+{
+
+.folder {
+  background-color: #EEEEFD;
+  margin: 20px 25px 15px;
+  border: 1px solid #a3daff;
+  position: relative;
+  width: 35%;
+  height: 200px;
+  display: block;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(19, 109, 169, 0.2);
+  padding-top: 80px;
+  padding-left: 100px;
+  margin-left: 5rem;
+}
+
+}
+
+
+@media (min-width: 1301px)  and (max-width: 1400px)
+{
+
+.folder {
+  background-color: #EEEEFD;
+  margin: 20px 25px 15px;
+  border: 1px solid #a3daff;
+  position: relative;
+  width: 28%;
+  height: 200px;
+  display: block;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(19, 109, 169, 0.2);
+  padding-top: 80px;
+  padding-left: 100px;
+  margin-left: 15rem;
+}
+
+}
+
+@media (min-width: 1401px)
+{
+
+.folder {
+  background-color: #EEEEFD;
+  margin: 20px 25px 15px;
+  border: 1px solid #a3daff;
+  position: relative;
+  width: 25%;
+  height: 200px;
+  display: block;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(19, 109, 169, 0.2);
+  padding-top: 80px;
+  padding-left: 100px;
+  margin-left: 5rem;
+}
+
+}
+
+
+
+
+    </style>
+</head>
+<body>
+
+     <div id="services-02">
+           <div class="content-box-md">
+              <div  id="services-tabs">
+ 					 <ul>
+ 					 	<li><a class="ua" href="#2020">2020</a></li> 
+ 					 	<li><a class="ua" href="#2019">2019</a></li>  
+ 					 	 <li><a class="ua" href="#2018">2018</a></li>
+ 					 	 <li><a class="ua" href="#2017">2017</a></li>     
+ 					 </ul><br><br>
+ 				<div id="linne"></div>
+
+<!------------------------------------------------------------- 2020 -------------------------------------------------------------------->
+                    <div id="2020" class="service-tab">
+
+                        <div class="container-fluid">
+                            <div class="row fadeInUp">
+                 	    
+ 
+  <div class="folder_row">
+  	<a href="jan2020.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>January</h1></div>
+      <div class="inner_content_count">
+        <h4>2020</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="feb2020.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>February</h1></div>
+      <div class="inner_content_count">
+        <h4>2020</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="march2020.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>March</h1></div>
+      <div class="inner_content_count">
+       <h4> 2020</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="april2020.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>April</h1></div>
+      <div class="inner_content_count">
+       <h4>2020</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="may2020.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>May</h1></div>
+      <div class="inner_content_count">
+        <h4>2020</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="june2020.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>June</h1></div>
+      <div class="inner_content_count">
+       <h4> 2020</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="july2020.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>July</h1></div>
+      <div class="inner_content_count">
+        <h4>2020</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="aug2020.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>August</h1></div>
+      <div class="inner_content_count">
+       <h4> 2020</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="sep2020.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>September</h1></div>
+      <div class="inner_content_count">
+       <h4> 2020</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="oct2020.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>October</h1></div>
+      <div class="inner_content_count">
+        <h4>2020</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="nov2020.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>November</h1></div>
+      <div class="inner_content_count">
+       <h4> 2020</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="dec2020.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>December</h1></div>
+      <div class="inner_content_count">
+       <h4> 2020</h4>
+      </div>
+    </div>
+  </div></a>
+
+</div>
+
+
+
+							
+							
+
+                            </div>
+                        </div>
+
+                    </div>
+
+               
+ <!------------------------------------------------------------- 2019 -------------------------------------------------------------------->
+                    <div id="2019" class="service-tab">
+
+                        <div class="container">
+                            <div class="row fadeInUp">
+                 	    
+ 
+  <div class="folder_row">
+  	<a href="jan2019.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>January</h1></div>
+      <div class="inner_content_count">
+        <h4>2019</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="feb2019.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>February</h1></div>
+      <div class="inner_content_count">
+        <h4>2019</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="march2019.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>March</h1></div>
+      <div class="inner_content_count">
+       <h4> 2019</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="april2019.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>April</h1></div>
+      <div class="inner_content_count">
+       <h4>2019</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="may2019.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>May</h1></div>
+      <div class="inner_content_count">
+        <h4>2019</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="june2019.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>June</h1></div>
+      <div class="inner_content_count">
+       <h4> 2019</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="july2019.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>July</h1></div>
+      <div class="inner_content_count">
+        <h4>2019</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="aug2019.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>August</h1></div>
+      <div class="inner_content_count">
+       <h4> 2019</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="sep2019.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>September</h1></div>
+      <div class="inner_content_count">
+       <h4> 2019</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="oct2019.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>October</h1></div>
+      <div class="inner_content_count">
+        <h4>2019</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="nov2019.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>November</h1></div>
+      <div class="inner_content_count">
+       <h4> 2019</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="dec2019.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>December</h1></div>
+      <div class="inner_content_count">
+       <h4> 2019</h4>
+      </div>
+    </div>
+  </div></a>
+
+</div>
+
+
+
+							
+							
+
+                            </div>
+                        </div>
+
+                    </div>
+
+  <!------------------------------------------------------------- 2018 -------------------------------------------------------------------->
+                    <div id="2018" class="service-tab">
+
+                        <div class="container">
+                            <div class="row fadeInUp">
+                 	    
+ 
+  <div class="folder_row">
+  	<a href="jan2018.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>January</h1></div>
+      <div class="inner_content_count">
+        <h4>2018</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="feb2018.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>February</h1></div>
+      <div class="inner_content_count">
+        <h4>2018</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="march2018.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>March</h1></div>
+      <div class="inner_content_count">
+       <h4> 2018</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="april2018.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>April</h1></div>
+      <div class="inner_content_count">
+       <h4>2018</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="may2018.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>May</h1></div>
+      <div class="inner_content_count">
+        <h4>2018</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="june2018.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>June</h1></div>
+      <div class="inner_content_count">
+       <h4> 2018</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="july2018.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>July</h1></div>
+      <div class="inner_content_count">
+        <h4>2018</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="aug2018.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>August</h1></div>
+      <div class="inner_content_count">
+       <h4> 2018</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="sep2018.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>September</h1></div>
+      <div class="inner_content_count">
+       <h4> 2018</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="oct2018.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>October</h1></div>
+      <div class="inner_content_count">
+        <h4>2018</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="nov2018.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>November</h1></div>
+      <div class="inner_content_count">
+       <h4> 2018</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="dec2018.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>December</h1></div>
+      <div class="inner_content_count">
+       <h4> 2018</h4>
+      </div>
+    </div>
+  </div></a>
+
+</div>
+
+
+
+							
+							
+
+                            </div>
+                        </div>
+
+                    </div>
+
+ 
+
+<!------------------------------------------------------------- 2017 -------------------------------------------------------------------->
+                    <div id="2017" class="service-tab">
+
+                        <div class="container">
+                            <div class="row fadeInUp">
+                 	    
+ 
+  <div class="folder_row">
+  	<a href="jan2017.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>January</h1></div>
+      <div class="inner_content_count">
+        <h4>2017</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="feb2017.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>February</h1></div>
+      <div class="inner_content_count">
+        <h4>2017</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="march2017.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>March</h1></div>
+      <div class="inner_content_count">
+       <h4> 2017</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="april2017.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>April</h1></div>
+      <div class="inner_content_count">
+       <h4>2017</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="may2017.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>May</h1></div>
+      <div class="inner_content_count">
+        <h4>2017</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="june2017.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>June</h1></div>
+      <div class="inner_content_count">
+       <h4> 2017</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="july2017.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>July</h1></div>
+      <div class="inner_content_count">
+        <h4>2017</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="aug2017.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>August</h1></div>
+      <div class="inner_content_count">
+       <h4> 2017</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="sep2017.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>September</h1></div>
+      <div class="inner_content_count">
+       <h4> 2017</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="oct2017.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>October</h1></div>
+      <div class="inner_content_count">
+        <h4>2017</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="nov2017.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>November</h1></div>
+      <div class="inner_content_count">
+       <h4> 2017</h4>
+      </div>
+    </div>
+  </div></a>
+
+<a href="dec2017.html">
+  <div class="folder pointer col-lg-4">
+    <span class="folder-tab"></span>
+    <span class="folder-tab_inner"></span>
+    <span class="folder-tab_inner_back"></span>
+    <div class="inner_content">
+      <div class="inner_content_title tx-short"><h1>December</h1></div>
+      <div class="inner_content_count">
+       <h4> 2017</h4>
+      </div>
+    </div>
+  </div></a>
+
+</div>
+
+
+
+							
+							
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+    </div>
+    <script>
+    
+   $(function () {
+
+    $("#services-tabs").responsiveTabs({
+        animation: 'slide'
+    });
+
+          
+    
+     $('.gallery').magnificPopup({
+        delegate: '.popimg',
+        type: 'image',
+        gallery: {
+            enabled: true
+        }
+    });
+      $('.gallery').isotope({
+      // options
+      itemSelector: '.items'
+    });
+
+    var $gallery = $('.gallery').isotope({
+      // options
+    });
+
+    // filter items on button click
+    $('.filtering').on( 'click', 'span', function() {
+
+        var filterValue = $(this).attr('data-filter');
+
+        $gallery.isotope({ filter: filterValue });
+
+    });
+
+    $('.filtering').on( 'click', 'span', function() {
+
+        $(this).addClass('active').siblings().removeClass('active');
+
+    });
+
+}); 
+
+    
+    
+    </script>
+</body>
+</html>

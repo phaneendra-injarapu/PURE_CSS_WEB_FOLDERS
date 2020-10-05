@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JAN 2020</title>    
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/responsive-tabs@1.6.3/css/responsive-tabs.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+   <script src="https://cdn.jsdelivr.net/npm/responsive-tabs@1.6.3/js/jquery.responsiveTabs.min.js"></script>
+	<style type="text/css">
+
+.demo {
+  display: -webkit-box;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  background-color: #EEEEFD;
+}
+.demo__gallery {
+  width: 688px;
+  height: 460px;
+  padding: 2px;
+  flex-shrink: 0;
+  background-color: #EEEEFD;
+  -webkit-perspective: 700px;
+          perspective: 700px;
+  border-radius: 5px;
+}
+.demo__placeholder {
+  width: 110px;
+  height: 110px;
+  margin: 2px;
+  float: left;
+   background-color: #EEEEFD;
+  border-radius: 5px;
+}
+.demo__part {
+  position: relative;
+  float: left;
+  width: 110px;
+  height: 110px;
+  margin: 2px;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.demo__part:hover .demo__part-front {
+  box-shadow: 0 0 10px black;
+  -webkit-transform: scale(0.96);
+          transform: scale(0.96);
+}
+.demo__part:hover .demo__part-front:after {
+  opacity: 0;
+}
+.demo__part-front, .demo__part-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.demo__part-front {
+  background-color: lightslategrey;
+  background-size: cover;
+  background-position: center;
+  -webkit-transform: rotateX(0deg);
+          transform: rotateX(0deg);
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.demo__part-front:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  content: "";
+  opacity: 0.5;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.demo__part-back {
+  -webkit-transform: rotateY(180deg) rotateX(0deg);
+          transform: rotateY(180deg) rotateX(0deg);
+}
+.demo__part-back-inner {
+  width: 680px;
+  height: 452px;
+  background-image: url(http://kirillkiyutin.com/img/nyc/nyc1.jpg);
+  background-size: cover;
+  background-position: center;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.demo__help {
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  color: #2D0653;
+  font-weight: 900;
+  border-bottom: 1px solid #2D0653;
+}
+
+.demo__part-1-1 .demo__part-back-inner {
+  -webkit-transform: translate(0px, 0px);
+          transform: translate(0px, 0px);
+}
+
+.demo__part-1-2 .demo__part-back-inner {
+  -webkit-transform: translate(-114px, 0px);
+          transform: translate(-114px, 0px);
+}
+
+.demo__part-1-3 .demo__part-back-inner {
+  -webkit-transform: translate(-228px, 0px);
+          transform: translate(-228px, 0px);
+}
+
+.demo__part-1-4 .demo__part-back-inner {
+  -webkit-transform: translate(-342px, 0px);
+          transform: translate(-342px, 0px);
+}
+
+.demo__part-1-5 .demo__part-back-inner {
+  -webkit-transform: translate(-456px, 0px);
+          transform: translate(-456px, 0px);
+}
+
+.demo__part-1-6 .demo__part-back-inner {
+  -webkit-transform: translate(-570px, 0px);
+          transform: translate(-570px, 0px);
+}
+
+.demo__part-2-1 .demo__part-back-inner {
+  -webkit-transform: translate(0px, -114px);
+          transform: translate(0px, -114px);
+}
+
+.demo__part-2-2 .demo__part-back-inner {
+  -webkit-transform: translate(-114px, -114px);
+          transform: translate(-114px, -114px);
+}
+
+.demo__part-2-3 .demo__part-back-inner {
+  -webkit-transform: translate(-228px, -114px);
+          transform: translate(-228px, -114px);
+}
+
+.demo__part-2-4 .demo__part-back-inner {
+  -webkit-transform: translate(-342px, -114px);
+          transform: translate(-342px, -114px);
+}
+
+.demo__part-2-5 .demo__part-back-inner {
+  -webkit-transform: translate(-456px, -114px);
+          transform: translate(-456px, -114px);
+}
+
+.demo__part-2-6 .demo__part-back-inner {
+  -webkit-transform: translate(-570px, -114px);
+          transform: translate(-570px, -114px);
+}
+
+.demo__part-3-1 .demo__part-back-inner {
+  -webkit-transform: translate(0px, -228px);
+          transform: translate(0px, -228px);
+}
+
+.demo__part-3-2 .demo__part-back-inner {
+  -webkit-transform: translate(-114px, -228px);
+          transform: translate(-114px, -228px);
+}
+
+.demo__part-3-3 .demo__part-back-inner {
+  -webkit-transform: translate(-228px, -228px);
+          transform: translate(-228px, -228px);
+}
+
+.demo__part-3-4 .demo__part-back-inner {
+  -webkit-transform: translate(-342px, -228px);
+          transform: translate(-342px, -228px);
+}
+
+.demo__part-3-5 .demo__part-back-inner {
+  -webkit-transform: translate(-456px, -228px);
+          transform: translate(-456px, -228px);
+}
+
+.demo__part-3-6 .demo__part-back-inner {
+  -webkit-transform: translate(-570px, -228px);
+          transform: translate(-570px, -228px);
+}
+
+.demo__part-4-1 .demo__part-back-inner {
+  -webkit-transform: translate(0px, -342px);
+          transform: translate(0px, -342px);
+}
+
+.demo__part-4-2 .demo__part-back-inner {
+  -webkit-transform: translate(-114px, -342px);
+          transform: translate(-114px, -342px);
+}
+
+.demo__part-4-3 .demo__part-back-inner {
+  -webkit-transform: translate(-228px, -342px);
+          transform: translate(-228px, -342px);
+}
+
+.demo__part-4-4 .demo__part-back-inner {
+  -webkit-transform: translate(-342px, -342px);
+          transform: translate(-342px, -342px);
+}
+
+.demo__part-4-5 .demo__part-back-inner {
+  -webkit-transform: translate(-456px, -342px);
+          transform: translate(-456px, -342px);
+}
+
+.demo__part-4-6 .demo__part-back-inner {
+  -webkit-transform: translate(-570px, -342px);
+          transform: translate(-570px, -342px);
+}
+
+.show-front {
+  -webkit-transform: none;
+          transform: none;
+}
+
+
+ /* Tabbed Styles */
+#services-tabs {
+  width: 80%;
+  min-width: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+  margin-top: 3rem;
+}
+#services-tabs ul {
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  float: right;
+  padding-left: 48px;
+  list-style-type: none;
+}
+#services-tabs ul * {
+  margin: 0px;
+  padding: 0px;
+}
+#services-tabs ul li {
+  display: block;
+  float: left;
+  padding: 10px 24px 8px;
+  background-color: #FFF;
+  margin-right: 46px;
+  z-index: 2;
+  position: relative;
+  cursor: pointer;
+  color: #777;
+
+  text-transform: uppercase;
+  font: 600 13px/20px roboto, "Open Sans", Helvetica, sans-serif;
+
+}
+#services-tabs ul li:before,
+#services-tabs ul li:after {
+  display: block;
+  content: " ";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 44px;  
+  background-color: white;
+
+}
+#services-tabs ul li:before {
+  right: -24px;
+  transform: skew(30deg, 0deg);
+  box-shadow: rgba(0,0,0,.1) 3px 2px 5px, inset rgba(255,255,255,.09) -1px 0;
+}
+#services-tabs ul li:after {
+  left: -24px;
+  transform: skew(-30deg, 0deg);
+  box-shadow: rgba(0,0,0,.1) -3px 2px 5px, inset rgba(255,255,255,.09) 1px 0;
+
+
+}
+
+#services-tabs ul li:hover,
+#services-tabs ul li:hover:before,
+#services-tabs ul li:hover:after {
+  background-color: #2D0653;
+  color: #fff;
+}
+#services-tabs ul li.active {
+  z-index: 3;
+
+}
+#services-tabs ul li.active,
+#services-tabs ul li.active:before,
+#services-tabs ul li.active:after {
+  background-color: #2D0653;
+  color: #fff;
+}
+
+/* Round Tabs */
+#services-tabs ul li {
+  border-radius: 8px 8px 0 0;
+}
+#services-tabs ul li:before {
+  border-radius: 0 8px 0 0;
+}
+#services-tabs ul li:after {
+  border-radius: 8px 0 0 0;
+
+}
+
+#linne
+{
+	border-bottom: 5px solid #A2A5CE;
+	max-width: 800px;
+	margin-left: 60rem;
+	
+}
+.ua
+{
+	text-decoration: none;
+	
+	font-weight: 1500;
+	font-size: 20px;
+}
+.ua:hover
+{
+	text-decoration: none;
+	color: white;
+}
+
+	</style>
+</head>
+<body>
+
+	           <div  id="services-tabs">
+	           	<a href="javascript(0)">back</a>
+ 					 <ul>
+ 					 	<li><a class="ua" href="tabs.html#2020">2020</a></li> 
+ 					 	<li><a class="ua" href="tabs.html#2019">2019</a></li>  
+ 					 	 <li><a class="ua" href="tabs.html#2018">2018</a></li>
+ 					 	 <li><a class="ua" href="tabs.html#2017">2017</a></li>     
+ 					 </ul><br><br>
+ 				<div id="linne"></div>
+ 			</div>
+
+<div class="demo">
+  <div class="demo__help">
+   JANUARY 2020
+  </div>
+  <div class="demo__gallery">
+    <div class="demo__placeholder"></div>
+    <div class="demo__placeholder"></div>
+    <div class="demo__placeholder"></div>
+    <div class="demo__placeholder"></div>
+    <div class="demo__placeholder"></div>
+    <div class="demo__placeholder"></div>
+    <div class="demo__placeholder"></div>
+    <div class="demo__placeholder"></div>
+    <div class="demo__placeholder"></div>
+    <div class="demo__placeholder"></div>
+    <div class="demo__placeholder"></div>
+    <div class="demo__placeholder"></div>
+    <div class="demo__placeholder"></div>
+    <div class="demo__placeholder"></div>
+    <div class="demo__placeholder"></div>
+    <div class="demo__placeholder"></div>
+    <div class="demo__placeholder"></div>
+    <div class="demo__placeholder"></div>
+    <div class="demo__placeholder"></div>
+    <div class="demo__placeholder"></div>
+    <div class="demo__placeholder"></div>
+    <div class="demo__placeholder"></div>
+    <div class="demo__placeholder"></div>
+    <div class="demo__placeholder"></div>
+  </div>  
+</div>
+
+<script type="text/javascript">
+	"use strict";
+$(document).ready(function () {
+  var rows = 4; //change this also in css
+  var cols = 6; //change this also in css
+  var staggerTime = 150;
+
+  var urls = [
+    "a5.jpg",
+    "r.jpg",
+    "j.jpg",
+    "a3.jpg",
+    "a5.jpg",
+    "r.jpg",
+    "j.jpg",
+    "a3.jpg",
+    "a5.jpg",
+    "r.jpg",
+    "j.jpg",
+    "a3.jpg",
+    "a5.jpg",
+   "r.jpg",
+    "j.jpg",
+    "a3.jpg",
+    "a5.jpg",
+    "r.jpg",
+    "j.jpg",
+    "a3.jpg",
+    "r.jpg",
+    "j.jpg",
+    "a3.jpg",
+    "a5.jpg"
+  ];
+
+  var $gallery = $(".demo__gallery");
+  var $help = $(".demo__help");
+  var partsArray = [];
+  var reqAnimFr = (function () {
+    return (
+      window.requestAnimationFrame ||
+      function (cb) {
+        setTimeout(cb, 1000 / 60);
+      }
+    );
+  })();
+
+  $gallery.html("");
+  for (let row = 1; row <= rows; row++) {
+    partsArray[row - 1] = [];
+    for (let col = 1; col <= cols; col++) {
+      $gallery.append(
+        `<div class="show-front demo__part demo__part-${row}-${col}" row="${row}" col="${col}"><div class="demo__part-back"><div class="demo__part-back-inner"></div></div><div class="demo__part-front"></div></div>`
+      );
+      partsArray[row - 1][col - 1] = new Part();
+    }
+  }
+
+  var $parts = $(".demo__part");
+  var $image = $(".demo__part-back-inner");
+  var help = true;
+
+  for (let i = 0; i < $parts.length; i++) {
+    $parts
+      .find(".demo__part-front")
+      .eq(i)
+      .css("background-image", `url(${urls[i]})`);
+  }
+
+  $gallery.on("click", ".demo__part-front", function () {
+    $image.css("background-image", $(this).css("background-image"));
+    if (help) {
+      $help.html("JANUARY 2020");
+      help = false;
+    }
+
+    let row = +$(this).closest(".demo__part").attr("row");
+    let col = +$(this).closest(".demo__part").attr("col");
+    waveChange(row, col);
+  });
+
+  $gallery.on("click", ".demo__part-back", function () {
+    if (!isShowingBack()) return;
+
+    $help.html(
+      `JANUARY 2020`
+    );
+
+    setTimeout(function () {
+      for (let row = 1; row <= rows; row++) {
+        for (let col = 1; col <= cols; col++) {
+          partsArray[row - 1][col - 1].showing = "front";
+        }
+      }
+    }, staggerTime + ($parts.length * staggerTime) / 10);
+
+    showFront(0, $parts.length);
+  });
+
+  function showFront(i, maxI) {
+    if (i >= maxI) return;
+    $parts.eq(i).addClass("show-front");
+
+    reqAnimFr(function () {
+      showFront(i + 1);
+    });
+  }
+
+  function isShowingBack() {
+    return (
+      partsArray[0][0].showing == "back" &&
+      partsArray[0][cols - 1].showing == "back" &&
+      partsArray[rows - 1][0].showing == "back" &&
+      partsArray[rows - 1][cols - 1].showing == "back"
+    );
+  }
+
+  function Part() {
+    this.showing = "front";
+  }
+
+  function waveChange(rowN, colN) {
+    if (rowN > rows || colN > cols || rowN <= 0 || colN <= 0) return;
+    if (partsArray[rowN - 1][colN - 1].showing == "back") return;
+    $(".demo__part-" + rowN + "-" + colN).removeClass("show-front");
+    partsArray[rowN - 1][colN - 1].showing = "back";
+    setTimeout(function () {
+      waveChange(rowN + 1, colN);
+      waveChange(rowN - 1, colN);
+      waveChange(rowN, colN + 1);
+      waveChange(rowN, colN - 1);
+    }, staggerTime);
+  }
+});
+
+</script>
+</body>
+</html>
